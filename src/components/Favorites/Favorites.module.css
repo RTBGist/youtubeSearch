@@ -1,0 +1,41 @@
+.favWrapper {
+    max-width: 1070px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+.favWrapper h1 {
+    margin-bottom: 50px;
+}
+
+.favItem {
+    background: #fff;
+    border-bottom: 1px solid #F1F1F1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.favItem:last-child {
+    margin-bottom: 0;
+}
+
+.favTitle {
+    color: #000000;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.favButtons {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.favButtons button {
+    padding: 0;
+    margin-left: 20px;
+}

@@ -1,0 +1,41 @@
+.post {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.postRow {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.postLeft {
+    min-width: 157px;
+    max-width: 157px;
+}
+.postRight {
+    width: calc(100% - 157px);
+    padding-left: 20px;
+}
+
+.postImage {
+    margin-bottom: 8px;
+}
+
+.postImage img {
+    display: block;
+    max-width: 100%;
+}
+
+.postTitle {
+    color: #000000;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 8px;
+}
+
+.postDescr {
+    color: rgba(23, 23, 25, 0.3);
+    font-size: 14px;
+    line-height: 16px;
+}

@@ -1,0 +1,34 @@
+.postsContainer {
+    max-width: 1070px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+
+.postsFilter {
+    margin-bottom: 20px;
+}
+
+.layoutIcons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.layoutIcn img {
+    display: block;
+    max-width: 100%;
+}
+
+.layoutIcn {
+    opacity: .3;
+    cursor: pointer;
+}
+.layoutIcn:hover {
+    opacity: .8;
+}
+
+.layoutIcons .active {
+    opacity: 1;
+}

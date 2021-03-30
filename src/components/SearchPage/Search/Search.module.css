@@ -1,0 +1,73 @@
+.searchWrapper {
+    max-width: 686px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.searchWrapper.searchWrapperWithResult {
+    max-width: 1070px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.searchWrapper.searchWrapperWithResult .searchHeader {
+    font-size: 28px;
+    line-height: 40px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.searchWrapper.searchWrapperWithResult .saveSearchWrapper {
+    display: block;
+}
+
+.searchHeader {
+    color: #000000;
+    font-size: 36px;
+    line-height: 52px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.formItem button {
+    width: 100%;
+    text-align: center;
+}
+
+.searchLine {
+    position: relative;
+}
+
+.saveSearchWrapper {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    display: none;
+}
+
+.saveSearchText {
+    min-width: 220px;
+    max-width: 220px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    left: 50%;
+    margin-left: -110px;
+    top: 35px;
+    position: absolute;
+    z-index: 2;
+    display: none;
+}
+
+.saveSearchText a {
+    display: block;
+    margin-top: 10px;
+}
+
+.saveSearchIcn {
+    position: relative;
+    cursor: pointer;
+}
+.saveSearchIcn:hover {
+    opacity: .8
+}

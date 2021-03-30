@@ -1,0 +1,69 @@
+.formWrapper {
+    min-height: 100vh;
+    background: #FAFAFA;
+}
+
+.form {
+    max-width: 510px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
+    border: 1px solid rgba(39, 39, 39, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 40px 15px 36px;
+}
+
+.formTitle {
+    text-align: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.formLogo {
+    margin-bottom: 32px;
+}
+
+.formInfo {
+    border: 1px solid #97c497;
+    background: #dbeeb2;
+    max-width: 334px;
+    width: 100%;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+}
+
+.formInfo .formInfoItem {
+    margin-bottom: 5px;
+}
+
+.formItem {
+    max-width: 334px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.formItem label {
+    color: rgba(23, 23, 25, 0.3);
+    font-size: 16px;
+    line-height: 22px;
+    height: auto;
+}
+.formItem button {
+    margin: 0 auto;
+    display: block;
+}
+
+.formLogo img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+

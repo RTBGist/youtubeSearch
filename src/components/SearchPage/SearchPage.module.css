@@ -1,0 +1,9 @@
+.searchPageWrapper {
+    height: calc(100vh - 88px);
+    padding-top: 88px;
+    padding-bottom: 88px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
