@@ -96,11 +96,11 @@ const AppContainer = connect(mapStateToProps,
 const MainApp = () => {
   // HashRouter for GH pages
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

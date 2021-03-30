@@ -99,7 +99,7 @@ const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParam
 
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              Submit
+              Сохранить
             </Button>
           </Form.Item>
         </Form>
