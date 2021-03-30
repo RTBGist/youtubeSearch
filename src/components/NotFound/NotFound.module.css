@@ -1,0 +1,14 @@
+.NotFoundWrapper {
+    text-align: center;
+    padding-top: 88px;
+    padding-bottom: 88px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.NotFoundWrapper h1 {
+    font-size: 100px;
+    line-height: 100px;
+    margin: 0 0 20px;
+}

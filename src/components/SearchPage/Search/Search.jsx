@@ -1,12 +1,15 @@
 import {Button, Form, Input, Row, Col} from "antd";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./Search.module.css"
 import HeartIcn from "../../../assets/images/heart.svg"
+import HeartIcnSaved from "../../../assets/images/heart_saved.svg"
 import {Link} from "react-router-dom";
 
 
 const Search = (props) => {
   const [form] = Form.useForm();
+  const [isFetching, setIsFetching] = useState(false);
+
 
   // update query name in form
   useEffect(() => {
@@ -18,9 +21,12 @@ const Search = (props) => {
   }, [])
 
   const onFinish = (values) => {
+    setIsFetching(true);
     const newQueryParams = {...props.queryParams, query: values.search}
     props.setQueryParams(newQueryParams)
-    props.getPosts(newQueryParams)
+    props.getPosts(newQueryParams).then(() => {
+      setIsFetching(false);
+    })
   };
 
 
@@ -59,9 +65,9 @@ const Search = (props) => {
               </Form.Item>
               <div className={styles.saveSearchWrapper}>
                 <span className={styles.saveSearchIcn} onClick={saveSearch}>
-                  <img src={HeartIcn} alt="Save"/>
+                  <img src={props.isSaved ? HeartIcnSaved : HeartIcn} alt="Save"/>
                 </span>
-                <div className={styles.saveSearchText}>
+                <div className={props.isSaved ? styles.saveSearchText + ' ' + styles.active : styles.saveSearchText}>
                   Поиск сохранён в разделе «Избранное»
                   <Link to="/favorites/">Перейти в избранное</Link>
                 </div>
@@ -71,7 +77,7 @@ const Search = (props) => {
             </Col>
             <Col span="4">
               <Form.Item className={styles.formItem}>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" loading={isFetching}>
                   Найти
                 </Button>
               </Form.Item>

@@ -1,9 +1,20 @@
-import React, {useEffect} from 'react'
+import React, {useEffect} from "react"
 import {Button, Col, Form, Input, InputNumber, Select, Slider, Row} from "antd";
 import Modal from "antd/es/modal/Modal";
+import styles from "./ModalForm.module.css"
 
 
-const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParams, onSubmitForm}) => {
+const layout = {
+  labelCol: {
+    span: 24,
+  },
+  wrapperCol: {
+    span: 24,
+  },
+};
+
+
+const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParams, onSubmitForm, formTitle, formButton}) => {
   const [form] = Form.useForm();
   const {Option} = Select;
 
@@ -31,33 +42,41 @@ const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParam
     <>
       <Modal onCancel={onCancel} visible={isModalVisible} footer={null} forceRender>
         <Form
+          className={styles.form}
           form={form}
           name="basic"
           initialValues={queryParams}
           onFinish={onFinish}
 
         >
+          <div className={styles.formTitle}>{formTitle}</div>
           <Form.Item
+            className={styles.formItem}
+            {...layout}
             label="Запрос"
             name="query"
-            rules={[{ required: true, message: 'Пожалуйста введите запрос' }]}
+            rules={[{ required: true, message: "Пожалуйста введите запрос" }]}
           >
             <Input disabled={queryDisabled} />
           </Form.Item>
 
           <Form.Item
+            className={styles.formItem}
+            {...layout}
             label="Название"
             name="queryTitle"
-            rules={[{ required: true, message: 'Пожалуйста введите название' }]}
+            rules={[{ required: true, message: "Пожалуйста введите название" }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
+            className={styles.formItem}
             name="filterBy"
             label="Сортировать по"
+            {...layout}
           >
-            <Select  style={{ width: 120 }}>
+            <Select  style={{ width: '100%' }}>
               <Option value="relevance">По релевантности</Option>
               <Option value="date">По дате загрузки</Option>
               <Option value="viewCount">По числу просмотров</Option>
@@ -69,10 +88,12 @@ const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParam
 
 
           <Row>
+            <Col span={24}>
+              <div className={styles.formDescr}>Максимальное количество:</div>
+            </Col>
             <Col span={20}>
               <Form.Item
                 name="maxCount"
-                label="Максимальное количество"
               >
                 <Slider
                   min={1}
@@ -95,13 +116,9 @@ const ModalForm = ({isModalVisible, hideModal, queryDisabled = false, queryParam
           </Row>
 
 
-
-
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Сохранить
-            </Button>
-          </Form.Item>
+          <Button type="primary" htmlType="submit">
+            {formButton}
+          </Button>
         </Form>
       </Modal>
     </>

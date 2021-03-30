@@ -60,6 +60,8 @@ const Favorites = (props) => {
                  showModal={showModal}
                  hideModal={hideModal}
                  queryDisabled={false}
+                 formTitle={"Изменить запрос"}
+                 formButton={"Изменить"}
       />
     </div>
   )

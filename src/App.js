@@ -1,6 +1,6 @@
 import React from "react"
 import "antd/dist/antd.css";
-import styles from "./App.module.css"
+import "./App.module.css"
 import Login from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
 import store from "./redux/redux-store";
@@ -19,6 +19,8 @@ import {
   changeQueries,
   deleteQuery
 } from "./redux/favorites.reducer";
+import NotFound from "./components/NotFound/NotFound";
+import Preloader from "./components/common/Preloader/Preloader";
 
 
 
@@ -26,16 +28,16 @@ const App = (props) => {
 
   useEffect(() => {
     props.setInit()
-  }, [props]);
+  }, []);
 
   if(!props.init) {
     return (
-      <div>Загрузка... Пожалуйста, подождите</div>
+      <Preloader />
     )
   }
 
   return (
-    <div className={styles.mainWrapper}>
+    <div>
       {props.isAuth && <Header logout={props.logout} />}
 
       <Switch>
@@ -67,7 +69,7 @@ const App = (props) => {
             queryArray={props.queryArray}
           />}
         />
-        <Route path="*" render={() => "404 Страница не найдена"} />
+        <Route path="*" render={() => <NotFound />} />
       </Switch>
     </div>
 

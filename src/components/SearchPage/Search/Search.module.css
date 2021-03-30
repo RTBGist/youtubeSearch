@@ -59,6 +59,10 @@
     display: none;
 }
 
+.saveSearchText.active {
+    display: block;
+}
+
 .saveSearchText a {
     display: block;
     margin-top: 10px;

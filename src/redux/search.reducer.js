@@ -1,5 +1,4 @@
 import {youtubeAPI} from "../api/api";
-import {addQueriesToLocalStorage} from "./favorites.reducer";
 
 const SET_POSTS = 'search/SET_POSTS'
 const SET_QUERY_PARAMS = 'search/SET_QUERY_PARAMS'
@@ -60,11 +59,10 @@ export const getPosts = (queryParams) => async (dispatch) => {
 
     dispatch(setPosts(posts))
   } catch(error) {
-    // ошибка
+    // error
+    console.log(error)
   }
 }
-
-
 
 
 export default searchReducer;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from "react"
 import {compose} from "redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import Search from "./Search/Search";
@@ -7,9 +7,9 @@ import styles from "./SearchPage.module.css"
 import SearchPosts from "./SearchPosts/SearchPosts";
 
 
-
 const SearchPage = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -19,13 +19,17 @@ const SearchPage = (props) => {
   };
 
   const onSubmitForm = (newQuery) => {
-    props.addQueries(newQuery, props.userId)
+    setIsSaved(true)
+    props.addQueries(newQuery, props.userId).then(() => {
+      setIsSaved(false)
+    })
   }
 
   return (
 
     <div className={styles.searchPageWrapper}>
-      <Search searchResult={!!props.posts} clearParamsPosts={props.clearParamsPosts} setQueryParams={props.setQueryParams} queryParams={props.queryParams} showModal={showModal} getPosts={props.getPosts} />
+      <Search isSaved={isSaved} searchResult={!!props.posts} clearParamsPosts={props.clearParamsPosts} setQueryParams={props.setQueryParams}
+              queryParams={props.queryParams} showModal={showModal} getPosts={props.getPosts} />
 
 
       {props.posts &&
@@ -38,6 +42,8 @@ const SearchPage = (props) => {
                  showModal={showModal}
                  hideModal={hideModal}
                  queryDisabled={true}
+                 formTitle={"Сохранить запрос"}
+                 formButton={"Сохранить"}
       />
     </div>
   )

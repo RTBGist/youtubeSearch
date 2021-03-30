@@ -39,7 +39,13 @@ export const setQueryArray = (newArray) => ({type: SET_QUERY_ARRAY, newArray})
 // THUNKS CREATORS
 export const addQueries = (query) => async (dispatch, getState) => {
   const userId = store.getState().auth.userId;
-  let queryArray = await LSAPI.getQueries(userId)
+
+  // fake slow for show favorite block
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(LSAPI.getQueries(userId)), 3000)
+  });
+
+  let queryArray = await promise
 
   if(queryArray) {
     queryArray.push(query)
