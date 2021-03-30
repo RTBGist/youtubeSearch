@@ -1,0 +1,22 @@
+{
+	"users": [
+		{
+			"id": "1",
+			"username": "test",
+			"password": "test",
+			"token": "fake_token_1"
+		},
+		{
+			"id": "2",
+			"username": "test2",
+			"password": "test",
+			"token": "fake_token_2"
+		},
+		{
+			"id": "3",
+			"username": "test3",
+			"password": "test",
+			"token": "fake_token_3"
+		}
+	]
+}
