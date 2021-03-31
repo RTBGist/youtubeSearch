@@ -17,7 +17,7 @@ import {
   addQueries,
   changeCurrentQuery,
   changeQueries,
-  deleteQuery
+  deleteQuery, getFavorites, setQueryArray
 } from "./redux/favorites.reducer";
 import NotFound from "./components/NotFound/NotFound";
 import Preloader from "./components/common/Preloader/Preloader";
@@ -60,6 +60,7 @@ const App = (props) => {
         />
         <Route path="/favorites" render={() =>
           <Favorites
+            getFavorites={props.getFavorites}
             deleteQuery={props.deleteQuery}
             getPosts={props.getPosts}
             setQueryParams={props.setQueryParams}
@@ -93,7 +94,7 @@ const AppContainer = connect(mapStateToProps,
   {loginMe, changeQueries, setInit,
     getPosts, logout, setQueryParams,
     addQueries, clearParamsPosts, changeCurrentQuery,
-    deleteQuery})(App);
+    deleteQuery, getFavorites})(App);
 
 const MainApp = () => {
   // HashRouter for GH pages

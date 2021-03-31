@@ -39,13 +39,7 @@ export const setQueryArray = (newArray) => ({type: SET_QUERY_ARRAY, newArray})
 // THUNKS CREATORS
 export const addQueries = (query) => async (dispatch, getState) => {
   const userId = store.getState().auth.userId;
-
-  // fake slow for show favorite block
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(LSAPI.getQueries(userId)), 3000)
-  });
-
-  let queryArray = await promise
+  let queryArray = LSAPI.getQueries(userId)
 
   if(queryArray) {
     queryArray.push(query)
@@ -71,8 +65,19 @@ export const deleteQuery = (position) => async (dispatch, getState) => {
   let queryArray = LSAPI.getQueries(userId)
 
   queryArray.splice(position, 1)
+
+  if(queryArray === null) {} else if (!queryArray.length) {
+    queryArray = null
+  }
+
   LSAPI.setQueries(queryArray, userId)
   dispatch(setQueryArray(queryArray));
+}
+
+export const getFavorites = () => async (dispatch, getState) => {
+  const userId = store.getState().auth.userId;
+  let favoriteQueries = LSAPI.getQueries(userId);
+  dispatch(setQueryArray(favoriteQueries));
 }
 
 export default favoritesReducer;

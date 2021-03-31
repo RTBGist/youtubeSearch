@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {compose} from "redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import ModalForm from "../common/ModalForm/ModalForm";
@@ -8,6 +8,10 @@ import {Button} from 'antd';
 
 const Favorites = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    props.getFavorites()
+  }, []);
 
   const showModal = () => {
     setIsModalVisible(true);

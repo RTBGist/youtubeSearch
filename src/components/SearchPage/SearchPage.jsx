@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {compose} from "redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import Search from "./Search/Search";
@@ -11,6 +11,13 @@ const SearchPage = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      setIsSaved(false)
+    }
+
+  }, [])
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -21,7 +28,9 @@ const SearchPage = (props) => {
   const onSubmitForm = (newQuery) => {
     setIsSaved(true)
     props.addQueries(newQuery, props.userId).then(() => {
-      setIsSaved(false)
+      setTimeout(() => {
+        setIsSaved(false)
+      }, 3000)
     })
   }
 
