@@ -2,7 +2,6 @@ import React from 'react'
 import {Form, Input, Button, Row, Col} from 'antd';
 import styles from './Login.module.css'
 import {Redirect} from "react-router-dom";
-import Logo from "../../assets/images/logo.svg"
 
 const layout = {
   labelCol: {
@@ -45,7 +44,6 @@ const Login = (props) => {
 
           <Row>
             <Col flex="auto">
-              <div className={styles.formLogo}><img src={Logo} alt="Logo"/></div>
               <div className={styles.formTitle}>Вход</div>
             </Col>
           </Row>

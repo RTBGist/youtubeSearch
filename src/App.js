@@ -17,7 +17,7 @@ import {
   addQueries,
   changeCurrentQuery,
   changeQueries,
-  deleteQuery, getFavorites, setQueryArray
+  deleteQuery, getFavorites
 } from "./redux/favorites.reducer";
 import NotFound from "./components/NotFound/NotFound";
 import Preloader from "./components/common/Preloader/Preloader";
